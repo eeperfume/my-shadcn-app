@@ -2,18 +2,11 @@
 import { useEffect, useState } from "react";
 import { columns, type Payment } from "./columns";
 import { DataTable } from "./data-table";
+import { data as paymentData } from "./data";
 
 async function getData(): Promise<Payment[]> {
   // 여기서 API를 통해 데이터를 가져오자.
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    // ...
-  ];
+  return paymentData;
 }
 
 export default function DemoPage() {
