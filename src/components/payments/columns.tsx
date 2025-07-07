@@ -10,7 +10,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import type { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
+import { DataTableColumnHeader } from "../data-table-column-header";
 
 // 이 타입은 데이터의 구조를 정의하는 데 사용된다.
 // 필요하다면 여기서 Zod 스키마를 사용해도 된다.
@@ -78,17 +79,9 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "email",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Email
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Email" />
+    ),
   },
   {
     accessorKey: "amount",
